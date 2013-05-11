@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 mai 2013 15:07:39 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modele.Client" table="client" schema="public">
+        <id name="idClient" type="string">
+            <column name="id_client" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomClient" type="string">
+            <column name="nom_client" length="128" />
+        </property>
+        <property name="prenomClient" type="string">
+            <column name="prenom_client" length="128" />
+        </property>
+        <property name="adresseClient" type="string">
+            <column name="adresse_client" length="128" />
+        </property>
+        <property name="cpClient" type="java.lang.Long">
+            <column name="cp_client" />
+        </property>
+        <property name="villeClient" type="string">
+            <column name="ville_client" length="128" />
+        </property>
+        <property name="telClient" type="string">
+            <column name="tel_client" length="128" />
+        </property>
+        <property name="emailClient" type="string">
+            <column name="email_client" length="128" />
+        </property>
+        <set name="factures" inverse="true">
+            <key>
+                <column name="id_client" length="32" not-null="true" />
+            </key>
+            <one-to-many class="modele.Facture" />
+        </set>
+    </class>
+</hibernate-mapping>

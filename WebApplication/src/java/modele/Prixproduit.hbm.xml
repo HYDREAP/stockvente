@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 mai 2013 15:07:39 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modele.Prixproduit" table="prixproduit" schema="public">
+        <id name="idPrix" type="string">
+            <column name="id_prix" length="32" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="produit" class="modele.Produit" fetch="select">
+            <column name="id_produit" length="32" not-null="true" />
+        </many-to-one>
+        <property name="debutValiditePrix" type="date">
+            <column name="debut_validite_prix" length="13" />
+        </property>
+        <property name="finValiditePrix" type="date">
+            <column name="fin_validite_prix" length="13" />
+        </property>
+        <property name="valeurPrix" type="java.lang.Double">
+            <column name="valeur_prix" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

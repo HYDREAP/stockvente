@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 mai 2013 15:07:39 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modele.Produit" table="produit" schema="public">
+        <id name="idProduit" type="string">
+            <column name="id_produit" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomProduit" type="string">
+            <column name="nom_produit" length="128" />
+        </property>
+        <property name="garantieProduit" type="string">
+            <column name="garantie_produit" length="32" />
+        </property>
+        <set name="prixproduits" inverse="true">
+            <key>
+                <column name="id_produit" length="32" not-null="true" />
+            </key>
+            <one-to-many class="modele.Prixproduit" />
+        </set>
+        <set name="stockproduits" inverse="true">
+            <key>
+                <column name="id_produit" length="32" not-null="true" />
+            </key>
+            <one-to-many class="modele.Stockproduit" />
+        </set>
+        <set name="contients" inverse="true">
+            <key>
+                <column name="id_produit" length="32" not-null="true" />
+            </key>
+            <one-to-many class="modele.Contient" />
+        </set>
+    </class>
+</hibernate-mapping>

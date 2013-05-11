@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 mai 2013 15:07:39 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modele.Utilisateur" table="utilisateur" schema="public">
+        <id name="idUser" type="string">
+            <column name="id_user" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomUser" type="string">
+            <column name="nom_user" length="128" />
+        </property>
+        <property name="prenomUser" type="string">
+            <column name="prenom_user" length="128" />
+        </property>
+        <property name="fonctionUser" type="string">
+            <column name="fonction_user" length="128" />
+        </property>
+        <property name="loginUser" type="string">
+            <column name="login_user" length="128" />
+        </property>
+        <property name="mdpUser" type="string">
+            <column name="mdp_user" length="128" />
+        </property>
+        <set name="stockproduits" inverse="true">
+            <key>
+                <column name="id_user" length="32" not-null="true" />
+            </key>
+            <one-to-many class="modele.Stockproduit" />
+        </set>
+        <set name="factures" inverse="true">
+            <key>
+                <column name="id_user" length="32" not-null="true" />
+            </key>
+            <one-to-many class="modele.Facture" />
+        </set>
+    </class>
+</hibernate-mapping>

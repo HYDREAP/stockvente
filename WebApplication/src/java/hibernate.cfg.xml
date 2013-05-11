@@ -10,5 +10,13 @@
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
     <property name="hibernate.connection.password">totolap1</property>
+    <mapping resource="modele/Prixproduit.hbm.xml"/>
+    <mapping resource="modele/Client.hbm.xml"/>
+    <mapping resource="modele/Contient.hbm.xml"/>
+    <mapping resource="modele/Produit.hbm.xml"/>
+    <mapping resource="modele/Facture.hbm.xml"/>
+    <mapping resource="modele/Fournisseur.hbm.xml"/>
+    <mapping resource="modele/Stockproduit.hbm.xml"/>
+    <mapping resource="modele/Utilisateur.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

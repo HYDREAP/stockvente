@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 mai 2013 15:07:39 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modele.Stockproduit" table="stockproduit" schema="public">
+        <id name="idStockProduit" type="string">
+            <column name="id_stock_produit" length="32" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fournisseur" class="modele.Fournisseur" fetch="select">
+            <column name="id_fournisseur" length="32" not-null="true" />
+        </many-to-one>
+        <many-to-one name="utilisateur" class="modele.Utilisateur" fetch="select">
+            <column name="id_user" length="32" not-null="true" />
+        </many-to-one>
+        <many-to-one name="produit" class="modele.Produit" fetch="select">
+            <column name="id_produit" length="32" not-null="true" />
+        </many-to-one>
+        <property name="qteProduitStocke" type="string">
+            <column name="qte_produit_stocke" length="32" />
+        </property>
+    </class>
+</hibernate-mapping>

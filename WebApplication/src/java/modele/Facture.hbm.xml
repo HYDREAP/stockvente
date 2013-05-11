@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 mai 2013 15:07:39 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modele.Facture" table="facture" schema="public">
+        <id name="idFacture" type="string">
+            <column name="id_facture" length="32" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="utilisateur" class="modele.Utilisateur" fetch="select">
+            <column name="id_user" length="32" not-null="true" />
+        </many-to-one>
+        <many-to-one name="client" class="modele.Client" fetch="select">
+            <column name="id_client" length="32" not-null="true" />
+        </many-to-one>
+        <property name="dateFacture" type="date">
+            <column name="date_facture" length="13" />
+        </property>
+        <property name="montantFacture" type="java.lang.Double">
+            <column name="montant_facture" scale="0" />
+        </property>
+        <property name="modePaiementFacture" type="string">
+            <column name="mode_paiement_facture" length="128" />
+        </property>
+        <set name="contients" inverse="true">
+            <key>
+                <column name="id_facture" length="32" not-null="true" />
+            </key>
+            <one-to-many class="modele.Contient" />
+        </set>
+    </class>
+</hibernate-mapping>

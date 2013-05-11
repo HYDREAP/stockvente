@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 mai 2013 15:07:39 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modele.Contient" table="contient" schema="public">
+        <composite-id name="id" class="modele.ContientId">
+            <key-property name="idFacture" type="string">
+                <column name="id_facture" length="32" />
+            </key-property>
+            <key-property name="idProduit" type="string">
+                <column name="id_produit" length="32" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="produit" class="modele.Produit" update="false" insert="false" fetch="select">
+            <column name="id_produit" length="32" not-null="true" />
+        </many-to-one>
+        <many-to-one name="facture" class="modele.Facture" update="false" insert="false" fetch="select">
+            <column name="id_facture" length="32" not-null="true" />
+        </many-to-one>
+        <property name="qteProduitFacturee" type="string">
+            <column name="qte_produit_facturee" length="32" />
+        </property>
+    </class>
+</hibernate-mapping>
