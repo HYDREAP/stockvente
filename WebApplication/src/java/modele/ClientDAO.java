@@ -3,6 +3,7 @@ package projetTest.beans;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import stockvente.HibernateUtil;
 
 public class ClientDAO {
     HibernateUtil  hu              = new HibernateUtil();
@@ -20,7 +21,7 @@ public class ClientDAO {
         try {
 
             /*
-             * Recuperation dans une liste des donŽes contenue dans la table
+             * Recuperation dans une liste des donï¿½es contenue dans la table
              * eleve
              */
             tx = session.beginTransaction();
@@ -55,7 +56,7 @@ public class ClientDAO {
         try {
 
             /*
-             * Recuperation dans une liste des donŽes contenue dans la table
+             * Recuperation dans une liste des donï¿½es contenue dans la table
              * eleve
              */
             tx = session.beginTransaction();
@@ -166,7 +167,7 @@ public class ClientDAO {
         try {
 
             /*
-             * Recuperation dans une liste des donŽes contenue dans la table
+             * Recuperation dans une liste des donï¿½es contenue dans la table
              * eleve
              */
             tx = session.beginTransaction();
