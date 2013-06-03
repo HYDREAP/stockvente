@@ -1,4 +1,5 @@
-package projetTest.beans;
+package modele;
+
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
