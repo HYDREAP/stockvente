@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25 mai 2013 15:25:21 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="projetTest.beans.Client" table="client">
+        <id name="idClient" type="int">
+            <column name="id_client" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomClient" type="string">
+            <column name="nom_client" length="128" />
+        </property>
+        <property name="prenomClient" type="string">
+            <column name="prenom_client" length="128" />
+        </property>
+        <property name="adresseClient" type="string">
+            <column name="adresse_client" length="128" />
+        </property>
+        <property name="cpClient" type="java.lang.Long">
+            <column name="cp_client" />
+        </property>
+        <property name="villeClient" type="string">
+            <column name="ville_client" length="128" />
+        </property>
+        <property name="telClient" type="string">
+            <column name="tel_client" length="128" />
+        </property>
+        <property name="emailClient" type="string">
+            <column name="email_client" length="128" />
+        </property>
+        <set name="factures" table="facture" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_client" not-null="true" />
+            </key>
+            <one-to-many class="projetTest.beans.Facture" />
+        </set>
+    </class>
+</hibernate-mapping>
